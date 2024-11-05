@@ -1,0 +1,41 @@
+<div class="profile-edit-container">
+  <div class="profile-edit-form">
+    <h2>Edit Profile</h2>
+    <form [formGroup]="editProfileForm" (ngSubmit)="onSubmit()">
+      <label for="firstName">First Name:</label>
+      <input id="firstName" formControlName="firstName" />
+
+      <label for="lastName">Last Name:</label>
+      <input id="lastName" formControlName="lastName" />
+
+      <label for="age">Age:</label>
+      <input id="age" formControlName="age" type="number" />
+
+      <label for="about">About:</label>
+      <input id="about" formControlName="about" type="text" />
+
+      <label for="skills">Skills:</label>
+      <input
+        id="skills"
+        formControlName="skills"
+        placeholder="Comma-separated"
+      />
+
+      <!-- Image Upload Field -->
+      <label for="profileImage">Profile Image:</label>
+      <input id="profileImage" type="file" (change)="onImageSelected($event)" />
+
+      <button type="submit">Save Changes</button>
+    </form>
+
+    <div class="profile-preview">
+      <h3>Profile Preview</h3>
+      <p><strong>First Name:</strong> {{ profile?.firstName }}</p>
+      <p><strong>Last Name:</strong> {{ profile?.lastName }}</p>
+      <p><strong>Age:</strong> {{ profile?.age }}</p>
+      <p><strong>About:</strong> {{ profile?.about }}</p>
+      <p><strong>Skills:</strong> {{ profile?.skills }}</p>
+      <img [src]="previewImage" alt="Profile Image" *ngIf="previewImage" />
+    </div>
+  </div>
+</div>

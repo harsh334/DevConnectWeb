@@ -1,0 +1,22 @@
+<div class="feed-container">
+  <div class="user-card" *ngFor="let feed of feedList">
+    <img [src]="feed.profileImage" alt="User Image" class="user-image" />
+    <h2 class="user-name">{{ feed.firstName + " " + feed.lastName }}</h2>
+    <p class="user-bio">{{ feed.age }}</p>
+
+    <div class="action-buttons">
+      <button
+        class="interested-btn"
+        (click)="onCreateConnection('interested', feed._id)"
+      >
+        Interested
+      </button>
+      <button
+        class="ignore-btn"
+        (click)="onCreateConnection('ignored', feed._id)"
+      >
+        Ignore
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="profile-container">
+  <div class="profile-card">
+    <img
+      src="{{ profile.profileImage }}"
+      alt="Profile Picture"
+      class="profile-pic"
+    />
+    <div class="profile-info">
+      <h2>{{ profile.firstName + " " + profile.lastName }}</h2>
+      <p>{{ profile.age }}</p>
+      <p>{{ profile.emailId }}</p>
+      <p *ngFor="let skill of profile.skills">{{ skill }}</p>
+    </div>
+  </div>
+</div>

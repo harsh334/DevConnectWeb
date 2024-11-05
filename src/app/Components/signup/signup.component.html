@@ -1,0 +1,69 @@
+<div class="signup-container">
+  <h2>Sign Up</h2>
+  <form [formGroup]="signupForm" (ngSubmit)="signup(signupForm.value)">
+    <label for="firstName">First Name</label>
+    <input
+      id="firstName"
+      formControlName="firstName"
+      type="text"
+      placeholder="Enter First Name"
+    />
+
+    <label for="lastName">Last Name</label>
+    <input
+      id="lastName"
+      formControlName="lastName"
+      type="text"
+      placeholder="Enter Last Name"
+    />
+
+    <label for="email">Email</label>
+    <input
+      id="email"
+      formControlName="emailId"
+      type="email"
+      placeholder="Enter Email"
+    />
+
+    <label for="password">Password</label>
+    <input
+      id="password"
+      formControlName="password"
+      type="password"
+      placeholder="Enter Password"
+    />
+
+    <label for="profileImage">Profile Image</label>
+    <input
+      id="profileImage"
+      formControlName="profileImage"
+      type="file"
+      (change)="onImageSelected($event)"
+    />
+
+    <label for="age">Age</label>
+    <input
+      id="age"
+      formControlName="age"
+      type="number"
+      placeholder="Enter Age"
+    />
+
+    <label for="about">About</label>
+    <input
+      id="about"
+      formControlName="about"
+      type="text"
+      placeholder="Enter about yourself"
+    />
+
+    <label for="skills">Skills</label>
+    <select id="skills" formControlName="skills" multiple>
+      <option *ngFor="let skill of skillsOptions" [value]="skill">
+        {{ skill }}
+      </option>
+    </select>
+
+    <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+  </form>
+</div>

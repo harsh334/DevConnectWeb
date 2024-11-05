@@ -1,0 +1,19 @@
+<div class="profile-container">
+  <div class="no-connection-message" *ngIf="connections.length === 0">
+    No Connection Yet
+  </div>
+  <div class="profile-card" *ngFor="let connection of connections">
+    <img
+      src="{{ connection.profileImage }}"
+      alt="Profile Picture"
+      class="profile-pic"
+    />
+    <div class="profile-info">
+      <h2>
+        {{
+          connection.fromUserId.firstName + " " + connection.fromUserId.lastName
+        }}
+      </h2>
+    </div>
+  </div>
+</div>

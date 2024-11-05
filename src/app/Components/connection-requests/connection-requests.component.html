@@ -1,0 +1,31 @@
+<div class="profile-container">
+  <div class="no-connection-message" *ngIf="connectionRequests.length === 0">
+    No Connection Requests
+  </div>
+  <div class="profile-card" *ngFor="let request of connectionRequests">
+    <img
+      src="{{ request.profileImage }}"
+      alt="Profile Picture"
+      class="profile-pic"
+    />
+    <div class="profile-info">
+      <h2>
+        {{ request.fromUserId.firstName + " " + request.fromUserId.lastName }}
+      </h2>
+    </div>
+    <div class="profile-actions">
+      <button
+        class="accept-btn"
+        (click)="reviewConnectionRequest('accepted', request._id)"
+      >
+        Accept
+      </button>
+      <button
+        class="reject-btn"
+        (click)="reviewConnectionRequest('rejected', request._id)"
+      >
+        Reject
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,54 @@
+.navbar {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px;
+   background-color: #333;
+   color: white;
+ }
+ 
+ .greeting {
+   margin-right: 10px;
+ }
+ 
+ .profile-wrapper {
+   position: relative;
+   cursor: pointer;
+ }
+ 
+ .profile-icon {
+   width: 40px;
+   height: 40px;
+   border-radius: 50%;
+ }
+ 
+ .profile-menu {
+   position: absolute;
+   top: 50px;
+   right: 0;
+   background-color: #444;
+   border-radius: 5px;
+   list-style: none;
+   padding: 10px 0;
+   margin: 0;
+   width: 120px;
+   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+ }
+ 
+ .profile-menu li {
+   padding: 8px 16px;
+   color: white;
+   cursor: pointer;
+   transition: background 0.3s;
+ }
+ 
+ .profile-menu li:hover {
+   background-color: #555;
+ }
+ 
+ .toast-top-right{
+  position: absolute;
+  z-index: 10;
+  top:0;
+  right: 0;
+ }
