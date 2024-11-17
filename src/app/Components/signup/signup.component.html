@@ -1,69 +1,177 @@
 <div class="signup-container">
-  <h2>Sign Up</h2>
-  <form [formGroup]="signupForm" (ngSubmit)="signup(signupForm.value)">
-    <label for="firstName">First Name</label>
-    <input
-      id="firstName"
-      formControlName="firstName"
-      type="text"
-      placeholder="Enter First Name"
-    />
+  <div class="signup-box">
+    <h2>Sign Up</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="signup(signupForm.value)">
+      <label for="firstName">First Name</label>
+      <input
+        id="firstName"
+        formControlName="firstName"
+        type="text"
+        placeholder="Enter First Name"
+      />
+      <div class="error-box">
+        <p
+          *ngIf="
+            firstName &&
+            firstName.invalid &&
+            (firstName.dirty || firstName.touched)
+          "
+        >
+          <span *ngIf="firstName.errors?.['required']">
+            firstName is required.
+          </span>
 
-    <label for="lastName">Last Name</label>
-    <input
-      id="lastName"
-      formControlName="lastName"
-      type="text"
-      placeholder="Enter Last Name"
-    />
+          <span *ngIf="firstName.errors?.['minlength']">
+            minlength should be 3.
+          </span>
 
-    <label for="email">Email</label>
-    <input
-      id="email"
-      formControlName="emailId"
-      type="email"
-      placeholder="Enter Email"
-    />
+          <span
+            *ngIf="firstName?.hasError('checkIfEmpty') && !firstName.errors?.['minlength']"
+          >
+            must enter a string value
+          </span>
+        </p>
+      </div>
 
-    <label for="password">Password</label>
-    <input
-      id="password"
-      formControlName="password"
-      type="password"
-      placeholder="Enter Password"
-    />
+      <label for="lastName">Last Name</label>
+      <input
+        id="lastName"
+        formControlName="lastName"
+        type="text"
+        placeholder="Enter Last Name"
+      />
+      <div class="error-box">
+        <p
+          *ngIf="
+            lastName && lastName.invalid && (lastName.dirty || lastName.touched)
+          "
+        >
+          <span *ngIf="lastName.errors?.['required']">
+            lastName is required.
+          </span>
+          <span *ngIf="lastName.errors?.['minlength']">
+            minlength should be 3.
+          </span>
+          <span
+            *ngIf="lastName?.hasError('checkIfEmpty') && !lastName.errors?.['minlength']"
+          >
+            must enter a string value
+          </span>
+        </p>
+      </div>
 
-    <label for="profileImage">Profile Image</label>
-    <input
-      id="profileImage"
-      formControlName="profileImage"
-      type="file"
-      (change)="onImageSelected($event)"
-    />
+      <label for="email">Email</label>
+      <input
+        id="email"
+        formControlName="emailId"
+        type="email"
+        placeholder="Enter Email"
+      />
+      <div class="error-box">
+        <p
+          *ngIf="
+            emailId && emailId.invalid && (emailId.dirty || emailId.touched)
+          "
+        >
+          <span *ngIf="emailId.errors?.['required']"> email is required. </span>
 
-    <label for="age">Age</label>
-    <input
-      id="age"
-      formControlName="age"
-      type="number"
-      placeholder="Enter Age"
-    />
+          <span *ngIf="emailId.errors?.['email']">
+            Invalid email address.
+          </span>
+        </p>
+      </div>
 
-    <label for="about">About</label>
-    <input
-      id="about"
-      formControlName="about"
-      type="text"
-      placeholder="Enter about yourself"
-    />
+      <label for="password">Password</label>
+      <input
+        id="password"
+        formControlName="password"
+        type="password"
+        placeholder="Enter Password"
+      />
+      <div class="error-box">
+        <p
+          *ngIf="
+            password && password.invalid && (password.dirty || password.touched)
+          "
+        >
+          <span *ngIf="password.errors?.['required']">
+            password is required.
+          </span>
 
-    <label for="skills">Skills</label>
-    <select id="skills" formControlName="skills" multiple>
-      <option *ngFor="let skill of skillsOptions" [value]="skill">
-        {{ skill }}
-      </option>
-    </select>
+          <span *ngIf="password.errors?.['pattern']">
+            atleast a number,special character & camel case.
+          </span>
 
-    <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
-  </form>
+          <span
+            *ngIf="password.errors?.['minlength'] && !password.errors?.['pattern']"
+          >
+            minLength should be 8
+          </span>
+        </p>
+      </div>
+
+      <label for="profileImage">Profile Image</label>
+      <input
+        id="profileImage"
+        formControlName="profileImage"
+        type="file"
+        (change)="onImageSelected($event)"
+      />
+      <div class="error-box">
+        <p
+          *ngIf="
+            profileImage &&
+            profileImage.invalid &&
+            (profileImage.dirty || profileImage.touched)
+          "
+        >
+          <span *ngIf="profileImage.errors?.['required']">
+            profileImage is required.
+          </span>
+        </p>
+      </div>
+
+      <label for="age">Age</label>
+      <input
+        id="age"
+        formControlName="age"
+        type="number"
+        placeholder="Enter Age"
+      />
+      <div class="error-box">
+        <p *ngIf="age && age.invalid && (age.dirty || age.touched)">
+          <span *ngIf="age.errors?.['required']"> age is required. </span>
+
+          <span *ngIf="age.errors?.['min']"> minimum 18 years of age </span>
+        </p>
+      </div>
+
+      <label for="about">About</label>
+      <input
+        id="about"
+        formControlName="about"
+        type="text"
+        placeholder="Enter about yourself"
+      />
+      <div class="error-box">
+        <p *ngIf="about && about.invalid && (about.dirty || about.touched)">
+          <span *ngIf="about.errors?.['required']"> about is required. </span>
+        </p>
+      </div>
+
+      <label for="skills">Skills</label>
+      <select id="skills" formControlName="skills" multiple>
+        <option *ngFor="let skill of skillsOptions" [value]="skill">
+          {{ skill }}
+        </option>
+      </select>
+      <div class="error-box">
+        <p *ngIf="skills && skills.invalid && (skills.dirty || skills.touched)">
+          <span *ngIf="skills.errors?.['required']"> skills is required. </span>
+        </p>
+      </div>
+
+      <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+    </form>
+  </div>
 </div>

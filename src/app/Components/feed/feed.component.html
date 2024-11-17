@@ -1,19 +1,37 @@
 <div class="feed-container">
-  <div class="user-card" *ngFor="let feed of feedList">
-    <img [src]="feed.profileImage" alt="User Image" class="user-image" />
-    <h2 class="user-name">{{ feed.firstName + " " + feed.lastName }}</h2>
-    <p class="user-bio">{{ feed.age }}</p>
+  <div *ngIf="feedList.length === 0">You are all caught up !! No new feed</div>
+  <div
+    class="user-card"
+    *ngIf="feedList.length > 0"
+    [ngClass]="{
+      'pop-out': animationState === 'leave',
+      'pop-in': animationState === 'enter'
+    }"
+    (animationend)="onAnimationEnd()"
+  >
+    <img
+      [src]="feedList[0].profileImage"
+      alt="User Image"
+      class="user-image cursor-pointer"
+      (click)="navigateTo('profile', feedList[0]._id)"
+    />
+    <h2 class="user-name">
+      {{ feedList[0].firstName + " " + feedList[0].lastName }}
+    </h2>
+    <p class="user-bio">{{ feedList[0].about }}</p>
+    <p class="user-bio">Age : {{ feedList[0].age }}</p>
+    <p class="user-bio">Skills : {{ feedList[0].skills.join(", ") }}</p>
 
     <div class="action-buttons">
       <button
         class="interested-btn"
-        (click)="onCreateConnection('interested', feed._id)"
+        (click)="onCreateConnection('interested', feedList[0]._id)"
       >
         Interested
       </button>
       <button
         class="ignore-btn"
-        (click)="onCreateConnection('ignored', feed._id)"
+        (click)="onCreateConnection('ignored', feedList[0]._id)"
       >
         Ignore
       </button>

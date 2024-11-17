@@ -26,7 +26,6 @@ export class ConnectionRequestsComponent {
     this.connectionService.getConnectionRequests().subscribe({
       next: (response: any) => {
         this.connectionRequests = response.data;
-        console.log('response in crc', response.data);
       },
     });
   }
@@ -42,7 +41,6 @@ export class ConnectionRequestsComponent {
           this.connectionRequests = this.connectionRequests.filter(
             (connectionRequest: any) => connectionRequest._id !== requestId
           );
-          console.log('response in crc', response);
         },
       });
   }

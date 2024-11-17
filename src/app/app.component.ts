@@ -15,9 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 })
 export class AppComponent {
   title = 'DevConnectWeb';
-  constructor(private authService: AuthService, private router: Router) {
-    console.log('construvctor');
-  }
+  constructor(private authService: AuthService, private router: Router) {}
+
   ngOnInit() {
     if (this.authService.isLoggedIn()) {
       this.authService.getLoggedInUser().subscribe({

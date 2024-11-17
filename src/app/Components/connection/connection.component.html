@@ -10,10 +10,19 @@
     />
     <div class="profile-info">
       <h2>
-        {{
-          connection.fromUserId.firstName + " " + connection.fromUserId.lastName
-        }}
+        {{ connection.firstName + " " + connection.lastName }}
       </h2>
+      <p>
+        Age : <span class="text-light">{{ connection.age }}</span>
+      </p>
+      <p>
+        About :
+        <span class="text-light">{{ connection.about }}</span>
+      </p>
+      <p>
+        EmailID :
+        <span class="text-light">{{ connection.emailId }}</span>
+      </p>
     </div>
   </div>
 </div>

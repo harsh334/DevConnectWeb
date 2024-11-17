@@ -1,18 +1,28 @@
 <nav class="navbar">
   <div class="navbar-left">
-    <h4>DevConnect</h4>
+    <h4
+      class="text-shadow-on-hover cursor-pointer"
+      (click)="navigateTo('feed')"
+    >
+      DevConnect
+    </h4>
   </div>
-  <div class="navbar-right">
+  <div class="navbar-right profile" (click)="toggleMenu()">
     <span class="greeting">
       Hello, {{ user ? user.firstName : "Developer" }}
     </span>
-    <div class="profile-wrapper" (click)="toggleMenu()">
-      <img src="" alt="Profile" class="profile-icon" />
+    <div class="profile-wrapper">
+      <img
+        src="{{ user.profileImage ? user.profileImage : defaultImageUrl }}"
+        alt="Profile"
+        class="profile-icon"
+      />
       <ul *ngIf="menuOpen" class="profile-menu">
         <li (click)="navigateTo('profile')">Profile</li>
-        <li (click)="navigateTo('edit')">Edit</li>
+        <li (click)="navigateTo('edit')">Edit Profile</li>
         <li (click)="navigateTo('connection')">Connections</li>
         <li (click)="navigateTo('connectionRequests')">Requests</li>
+        <li (click)="navigateTo('feed')">Feed Page</li>
         <li (click)="logout()">Logout</li>
       </ul>
     </div>

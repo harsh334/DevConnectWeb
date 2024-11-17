@@ -22,7 +22,6 @@ export class ProfileComponent {
     this.profileId = this.route.snapshot.paramMap.get('profileId') || '';
     this.profileService.getProfile(this.profileId).subscribe({
       next: (response: any) => {
-        console.log('response in pc', response.data);
         this.profile = response.data;
       },
       error: (error: any) => {

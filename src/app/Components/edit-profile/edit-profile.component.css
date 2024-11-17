@@ -1,78 +1,76 @@
 .profile-edit-container {
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   height: 100vh;
-   width: 100vw;
-   background-color: #121212;
- }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #121212;
+}
 
- .profile-edit-form{
+.profile-edit-form{
   max-width: 400px;
-   margin: 0 auto;
-   padding: 20px;
-   background-color: #1f1f1f;
-   border-radius: 8px;
-   color: #ffffff;
- }
- 
- .profile-edit-container h2 {
-   color: #e6e6e6;
- }
- 
- label {
-   display: block;
-   margin-top: 10px;
-   color: #b3b3b3;
- }
- 
- input {
-   width: 100%;
-   padding: 8px;
-   margin-top: 5px;
-   box-sizing: border-box;
-   background-color: #292929;
-   color: #e6e6e6;
-   border: none;
-   border-radius: 4px;
- }
- 
- input::placeholder {
-   color: #777;
- }
- 
- button {
-   margin-top: 15px;
-   padding: 10px;
-   width: 100%;
-   background-color: #4caf50;
-   color: white;
-   border: none;
-   border-radius: 4px;
-   cursor: pointer;
- }
- 
- button:hover {
-   background-color: #45a049;
- }
- 
- .profile-preview {
-   margin-top: 20px;
-   padding: 10px;
-   background-color: #3b3b3b;
-   border-radius: 8px;
- }
- 
- .profile-preview h3 {
-   color: #e6e6e6;
- }
- 
- .profile-preview p {
-   color: #d3d3d3;
- }
- 
- .profile-preview img {
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #1f1f1f;
+  border-radius: 8px;
+  color: #ffffff;
+}
+
+.profile-edit-container h2 {
+  color: #e6e6e6;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  color: #b3b3b3;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  background-color: #292929;
+  color: #e6e6e6;
+  border: none;
+  border-radius: 4px;
+}
+
+input::placeholder {
+  color: #777;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.profile-preview {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #3b3b3b;
+  border-radius: 8px;
+}
+
+.profile-preview h3 {
+  color: #e6e6e6;
+}
+
+.profile-preview p {
+  color: #d3d3d3;
+}
+
+.profile-preview img {
   width: 100px;
   height: 100px;
   border-radius: 50%;

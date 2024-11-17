@@ -87,6 +87,11 @@ button:hover {
   color: #4343d4a2;
 }
 
+.error-box{
+  margin: 10px 0;
+  color: #ff0000;
+}
+
 @media (max-width: 768px) {
   .login-box {
     padding: 20px;

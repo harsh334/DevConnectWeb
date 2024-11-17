@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { ProfileService } from '../../Services/profile.service';
 import { AuthService } from '../../Services/auth.service';
 import { ToastrService } from 'ngx-toastr';
@@ -33,11 +38,11 @@ export class EditProfileComponent {
 
   initializeForm() {
     this.editProfileForm = this.fb.group({
-      firstName: [''],
-      lastName: [''],
-      age: [''],
-      skills: [''],
-      about: [''],
+      firstName: ['', Validators.required],
+      lastName: ['', Validators.required],
+      age: ['', Validators.required],
+      skills: ['', Validators.required],
+      about: ['', Validators.required],
       profileImage: [''],
     });
 

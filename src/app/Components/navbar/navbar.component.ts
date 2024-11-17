@@ -3,6 +3,7 @@ import { AuthService } from '../../Services/auth.service';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
+import { constants } from '../../Constants/constant';
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +15,7 @@ import { ToastrService } from 'ngx-toastr';
 export class NavbarComponent {
   user: any = '';
   menuOpen: boolean = false;
+  defaultImageUrl: string = constants.defaultImageUrl;
 
   constructor(
     private authService: AuthService,
@@ -43,7 +45,7 @@ export class NavbarComponent {
     } else {
       this.router.navigate([`/${route}`]);
     }
-    this.menuOpen = false;
+    this.toggleMenu();
   }
 
   logout() {

@@ -1,12 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Login Page</title>
-  </head>
-  <body> -->
 <div class="login-container">
   <div class="login-box">
     <h2>Login</h2>
@@ -31,7 +22,40 @@
           required
         />
       </div>
-      <button type="submit">Login</button>
+      <div class="error-box">
+        <p
+          *ngIf="
+            emailId && emailId.invalid && (emailId.dirty || emailId.touched)
+          "
+        >
+          <span *ngIf="emailId.errors?.['required']"> email is required. </span>
+
+          <span *ngIf="emailId.errors?.['email']">
+            Invalid email address.
+          </span>
+        </p>
+        <p
+          *ngIf="
+            password && password.invalid && (password.dirty || password.touched)
+          "
+        >
+          <span *ngIf="password.errors?.['required']">
+            password is required.
+          </span>
+
+          <span *ngIf="password.errors?.['pattern']">
+            atleast a number,special character & camel case.
+          </span>
+
+          <span
+            *ngIf="password.errors?.['minlength'] && !password.errors?.['pattern']"
+          >
+            atleast 6 letters.
+          </span>
+        </p>
+        <p *ngIf="errorMessage">{{ errorMessage }}</p>
+      </div>
+      <button type="submit" [disabled]="loginForm.invalid">Login</button>
       <p class="signup-text pe-auto">
         Don't have an account?
         <span class="cursor-pointer signup-link" (click)="navigateToSignup()">
@@ -41,5 +65,3 @@
     </form>
   </div>
 </div>
-<!-- </body>
-</html> -->

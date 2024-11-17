@@ -4,7 +4,7 @@
   </div>
   <div class="profile-card" *ngFor="let request of connectionRequests">
     <img
-      src="{{ request.profileImage }}"
+      src="{{ request.fromUserId.profileImage }}"
       alt="Profile Picture"
       class="profile-pic"
     />
@@ -12,6 +12,17 @@
       <h2>
         {{ request.fromUserId.firstName + " " + request.fromUserId.lastName }}
       </h2>
+      <p>
+        Age : <span class="text-light">{{ request.fromUserId.age }}</span>
+      </p>
+      <p>
+        About :
+        <span class="text-light">{{ request.fromUserId.about }}</span>
+      </p>
+      <p>
+        EmailID :
+        <span class="text-light">{{ request.fromUserId.emailId }}</span>
+      </p>
     </div>
     <div class="profile-actions">
       <button

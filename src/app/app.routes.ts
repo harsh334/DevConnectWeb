@@ -21,7 +21,6 @@ export const routes: Routes = [
   {
     path: 'connection',
     component: ConnectionComponent,
-    canActivate: [authGuard],
   },
   {
     path: 'connectionRequests',
