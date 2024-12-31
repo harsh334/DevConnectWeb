@@ -4,6 +4,9 @@
       {
          "src": "angular.json",
          "use": "@vercel/static-build",
+         "env": {
+            "NODE_ENV": "development"
+         },
          "config": {
          "distDir": "dist/dev-connect-web"
          }
