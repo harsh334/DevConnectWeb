@@ -6,6 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { IUserProfile } from '../Models/IUserProfile';
 import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -23,9 +24,12 @@ export class AuthService {
   }
 
   getLoggedInUser(): Observable<IUserProfile> {
-    return this.http.get<IUserProfile>('http://localhost:3000/profile/view', {
-      withCredentials: true,
-    });
+    return this.http.get<IUserProfile>(
+      `${environment.apiUrl}` + 'profile/view',
+      {
+        withCredentials: true,
+      }
+    );
   }
 
   setUser(user: any) {
@@ -37,18 +41,18 @@ export class AuthService {
   }
 
   login(body: ILoginBody) {
-    return this.http.post('http://localhost:3000/login', body, {
+    return this.http.post(`${environment.apiUrl}` + 'login', body, {
       withCredentials: true,
     });
   }
 
   signup(body: ISignupBody) {
-    return this.http.post('http://localhost:3000/signup', body);
+    return this.http.post(`${environment.apiUrl}` + 'signup', body);
   }
 
   logout() {
     return this.http
-      .post('http://localhost:3000/logout', '', { withCredentials: true })
+      .post(`${environment.apiUrl}` + 'logout', '', { withCredentials: true })
       .pipe(
         tap(() => {
           this.cookieService.delete('token');

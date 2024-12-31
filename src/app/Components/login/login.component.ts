@@ -6,7 +6,6 @@ import {
   Validators,
 } from '@angular/forms';
 import { AuthService } from '../../Services/auth.service';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
@@ -24,7 +23,6 @@ export class LoginComponent {
 
   constructor(
     private authService: AuthService,
-    private http: HttpClient,
     private router: Router,
     private toaster: ToastrService
   ) {}

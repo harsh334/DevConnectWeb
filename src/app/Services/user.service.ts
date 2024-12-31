@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +8,7 @@ import { Injectable } from '@angular/core';
 export class UserService {
   constructor(private http: HttpClient) {}
   getFeed() {
-    return this.http.get('http://localhost:3000/user/feed', {
+    return this.http.get(`${environment.apiUrl}` + 'user/feed', {
       withCredentials: true,
     });
   }
