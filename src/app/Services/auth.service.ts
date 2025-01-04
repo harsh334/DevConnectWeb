@@ -19,10 +19,6 @@ export class AuthService {
     private router: Router
   ) {}
 
-  isLoggedIn(): boolean {
-    return this.cookieService.check('token');
-  }
-
   getLoggedInUser(): Observable<IUserProfile> {
     return this.http.get<IUserProfile>(
       `${environment.apiUrl}` + 'profile/view',

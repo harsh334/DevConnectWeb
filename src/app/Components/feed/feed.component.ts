@@ -32,11 +32,14 @@ export class FeedComponent {
       next: (response: any) => {
         this.feedList = response.data;
       },
+      error: (error: any) => {
+        console.log('error fetching feed', error);
+      },
     });
   }
 
   onCreateConnection(status: string, id: string) {
-    this.animationState = 'leave'; // Trigger leave animation
+    this.animationState = 'leave';
     this.connectionService.createConnectionRequest(status, id).subscribe({
       next: () => {
         this.toaster.info(`You ${status} the profile`, '', { timeOut: 500 });
@@ -49,8 +52,8 @@ export class FeedComponent {
 
   onAnimationEnd() {
     if (this.animationState === 'leave') {
-      this.feedList.shift(); // Remove the first card after the animation ends
-      this.animationState = 'enter'; // Trigger enter animation for the next card
+      this.feedList.shift();
+      this.animationState = 'enter';
     }
   }
 

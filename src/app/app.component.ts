@@ -18,14 +18,13 @@ export class AppComponent {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
-    if (this.authService.isLoggedIn()) {
-      this.authService.getLoggedInUser().subscribe({
-        next: (response: IUserProfile) => {
-          this.authService.setUser(response.data);
-        },
-      });
-    } else {
-      this.router.navigateByUrl('/login');
-    }
+    this.authService.getLoggedInUser().subscribe({
+      next: (response: IUserProfile) => {
+        this.authService.setUser(response.data);
+      },
+      error: (err) => {
+        this.router.navigateByUrl('/login');
+      },
+    });
   }
 }

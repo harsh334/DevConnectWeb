@@ -1,21 +1,23 @@
 {
    "version": 2,
    "builds": [
-      {
-         "src": "angular.json",
-         "use": "@vercel/static-build",
-         "env": {
-            "NODE_ENV": "development"
-         },
-         "config": {
-         "distDir": "dist/dev-connect-web"
-         }
-      }
+     {
+       "src": "package.json",
+       "use": "@vercel/static-build",
+       "config": {
+         "distDir": "dist/dev-connect-web/browser"
+       }
+     }
    ],
    "routes": [
-      {
-         "src": "/(.*)",
-         "dest": "/index.html"
-      }
+     {
+       "src": "/(.*\\.(js|css|svg|png|jpg|woff|woff2|ttf|json))",
+       "dest": "/$1"
+     },
+     {
+       "src": "/(.*)",
+       "dest": "/index.html"
+     }
    ]
-}
+ }
+ 
